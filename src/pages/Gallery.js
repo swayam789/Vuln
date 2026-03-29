@@ -7,87 +7,94 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      category: 'workshops',
-      title: 'Cybersecurity Basics Workshop',
-      description: 'March 2024 - Introduction to online safety',
-      image: 'https://picsum.photos/seed/workshop1/400/300.jpg'
+      category: 'competition',
+      title: 'Cybersecurity Basic HTB CTF',
+      description: 'HTB CTF - Basic Level',
+      image: '/1.jpg'
     },
     {
       id: 2,
-      category: 'competitions',
-      title: 'Annual CTF Competition',
-      description: 'February 2024 - 24-hour hacking challenge',
-      image: 'https://picsum.photos/seed/ctf1/400/300.jpg'
+      category: 'events',
+      title: 'CTF Training ',
+      description: 'Dec 22, CTF training session',
+      image: '/2.jpg'
     },
     {
       id: 3,
-      category: 'events',
-      title: 'Cybersecurity Awareness Month',
-      description: 'October 2023 - Campus-wide campaign',
-      image: 'https://picsum.photos/seed/awareness1/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/3.jpg'
     },
     {
       id: 4,
-      category: 'team',
-      title: 'Team Strategy Meeting',
-      description: 'January 2024 - Planning spring activities',
-      image: 'https://picsum.photos/seed/team1/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/4.jpg'
     },
     {
       id: 5,
-      category: 'workshops',
-      title: 'Ethical Hacking Workshop',
-      description: 'November 2023 - Hands-on penetration testing',
-      image: 'https://picsum.photos/seed/workshop2/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/5.jpg'
     },
     {
       id: 6,
       category: 'competitions',
-      title: 'Regional Cybersecurity Competition',
-      description: 'December 2023 - Our team won 1st place',
-      image: 'https://picsum.photos/seed/ctf2/400/300.jpg'
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/6.jpg'
     },
     {
       id: 7,
-      category: 'events',
-      title: 'Industry Guest Lecture',
-      description: 'September 2023 - Security expert from TechCorp',
-      image: 'https://picsum.photos/seed/guest1/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/7.jpg'
     },
     {
       id: 8,
-      category: 'team',
-      title: 'Team Building Activity',
-      description: 'August 2023 - Welcome new members',
-      image: 'https://picsum.photos/seed/team2/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/8.jpg'
     },
     {
       id: 9,
-      category: 'workshops',
-      title: 'Digital Forensics Workshop',
-      description: 'July 2023 - Evidence collection techniques',
-      image: 'https://picsum.photos/seed/workshop3/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/9.jpg'
     },
     {
       id: 10,
-      category: 'events',
-      title: 'Student Club Fair',
-      description: 'May 2023 - Recruiting new members',
-      image: 'https://picsum.photos/seed/fair1/400/300.jpg'
+      category: 'competitions',
+      title: 'Quiz Competition',
+      description: 'Dec 27 2024, Quiz competition',
+      image: '/10.jpg'
     },
     {
       id: 11,
-      category: 'competitions',
-      title: 'Cybersecurity Hackathon',
-      description: 'April 2023 - 48-hour coding challenge',
-      image: 'https://picsum.photos/seed/hackathon1/400/300.jpg'
+      category: 'team',
+      title: 'CCSA orientation',
+      description: 'March 29 2026, CCSA orientation',
+      image: '/11.jpeg'
     },
     {
       id: 12,
       category: 'team',
-      title: 'Achievement Celebration',
-      description: 'March 2023 - Recognizing outstanding members',
-      image: 'https://picsum.photos/seed/celebration1/400/300.jpg'
+      title: 'CCSA orientation',
+      description: 'March 29 2026, CCSA orientation',
+      image: '/12.jpeg'
+    },
+    {
+      id: 13,
+      category: 'team',
+      title: 'CCSA orientation',
+      description: 'March 29 2026, CCSA orientation',
+      image: '/13.jpeg'
     }
   ];
 

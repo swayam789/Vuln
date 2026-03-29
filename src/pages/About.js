@@ -34,29 +34,6 @@ const About = () => {
     }
   ];
 
-  const achievements = [
-    {
-      year: '2024',
-      title: 'Best Student Club Award',
-      description: 'Recognized as the most active and impactful student club at Forbes College'
-    },
-    {
-      year: '2023',
-      title: 'Regional CTF Champions',
-      description: 'Our team won first place in the Regional Collegiate Cybersecurity Competition'
-    },
-    {
-      year: '2022',
-      title: '500+ Students Trained',
-      description: 'Reached a milestone of training over 500 students in cybersecurity basics'
-    },
-    {
-      year: '2021',
-      title: 'Club Foundation',
-      description: 'Officially established as a recognized student organization at Forbes College'
-    }
-  ];
-
   return (
     <>
       <section className="page-header">
@@ -114,23 +91,6 @@ const About = () => {
                 <div className="activity-icon">{activity.icon}</div>
                 <h3>{activity.title}</h3>
                 <p>{activity.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="achievements">
-        <div className="container">
-          <h2 className="section-title">Our Achievements</h2>
-          <div className="achievements-timeline">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-date">{achievement.year}</div>
-                <div className="timeline-content">
-                  <h3>{achievement.title}</h3>
-                  <p>{achievement.description}</p>
-                </div>
               </div>
             ))}
           </div>

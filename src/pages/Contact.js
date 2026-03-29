@@ -39,56 +39,20 @@ const Contact = () => {
     setFormStatus('Sending...');
     setTimeout(() => {
       setFormStatus('Message sent successfully! We will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        newsletter: false
-      });
+      resetForm();
     }, 1500);
   };
 
-  const membershipOptions = [
-    {
-      title: 'Regular Member',
-      price: 'Free',
-      featured: false,
-      features: [
-        'Attend all workshops and events',
-        'Access to basic learning resources',
-        'Club newsletter subscription',
-        'Networking opportunities'
-      ]
-    },
-    {
-      title: 'Active Member',
-      price: '$25/semester',
-      featured: true,
-      badge: 'Most Popular',
-      features: [
-        'Everything in Regular Member',
-        'Priority event registration',
-        'Advanced workshop access',
-        'CTF team participation',
-        'Club merchandise',
-        'Leadership opportunities'
-      ]
-    },
-    {
-      title: 'Leadership Track',
-      price: '$50/semester',
-      featured: false,
-      features: [
-        'Everything in Active Member',
-        'Leadership training program',
-        'Industry mentorship',
-        'Certification preparation',
-        'Conference attendance support',
-        'Resume building workshops'
-      ]
-    }
-  ];
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+      newsletter: false
+    });
+    setFormStatus('');
+  };
 
   const faqs = [
     {
@@ -140,7 +104,7 @@ const Contact = () => {
                   <div className="contact-icon">📧</div>
                   <div className="contact-details">
                     <h3>Email</h3>
-                    <p>ccsa@forbescollege.edu</p>
+                    <p>event.ccsa.forbes@gmail.com</p>
                     <p className="contact-note">For general inquiries and membership applications</p>
                   </div>
                 </div>
@@ -149,8 +113,8 @@ const Contact = () => {
                   <div className="contact-icon">📱</div>
                   <div className="contact-details">
                     <h3>Phone</h3>
-                    <p>+1 (555) 123-4567</p>
-                    <p className="contact-note">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>056-594300</p>
+                    <p className="contact-note">Sunday - Friday: 9:00 AM - 5:00 PM</p>
                   </div>
                 </div>
                 
@@ -160,7 +124,7 @@ const Contact = () => {
                     <h3>Location</h3>
                     <p>Student Center, Room 204</p>
                     <p>Forbes College, Main Campus</p>
-                    <p className="contact-note">Office hours: Tuesday & Thursday 2:00 PM - 4:00 PM</p>
+                    <p className="contact-note">Office hours: Sunday - Friday: 7:00 AM - 1:00 PM</p>
                   </div>
                 </div>
                 
@@ -169,7 +133,7 @@ const Contact = () => {
                   <div className="contact-details">
                     <h3>Social Media</h3>
                     <div className="social-links">
-                      <a href="#">Facebook</a>
+                      <a href="https://www.facebook.com/ForbesCCSA">Facebook</a>
                       <a href="#">Twitter</a>
                       <a href="#">LinkedIn</a>
                       <a href="#">Instagram</a>
@@ -258,29 +222,6 @@ const Contact = () => {
                 <button type="submit" className="btn btn-primary">Send Message</button>
               </form>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="membership-section">
-        <div className="container">
-          <h2 className="section-title">Join Our Club</h2>
-          <div className="membership-options">
-            {membershipOptions.map((option, index) => (
-              <div key={index} className={`membership-card ${option.featured ? 'featured' : ''}`}>
-                {option.badge && <div className="membership-badge">{option.badge}</div>}
-                <h3>{option.title}</h3>
-                <div className="membership-price">{option.price}</div>
-                <ul className="membership-features">
-                  {option.features.map((feature, featureIndex) => (
-                    <li key={featureIndex}>{feature}</li>
-                  ))}
-                </ul>
-                <button className={`btn ${option.featured ? 'btn-primary' : 'btn-outline'}`}>
-                  Apply Now
-                </button>
-              </div>
-            ))}
           </div>
         </div>
       </section>
