@@ -34,7 +34,7 @@ app.use(express.json());
 
 // Enable CORS
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000'],
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'https://vuln-ypnb.onrender.com', 'https://vuln-1-u8jh.onrender.com'],
     credentials: true
 }));
 
