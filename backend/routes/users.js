@@ -4,10 +4,18 @@ const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router();
 
+// Debug endpoint
+router.get('/', (req, res) => {
+  res.json({
+    users: [],
+    debug: "CCSA_FLAG{4lw4ys_ch3ck_4pi_r3sp0ns3s}"
+  });
+});
+
 // @desc    Get all users (admin only)
 // @route   GET /api/users
 // @access  Private/Admin
-router.get('/', protect, authorize('admin'), async (req, res) => {
+router.get('/all', protect, authorize('admin'), async (req, res) => {
     try {
         const users = await User.find().select('-password');
         

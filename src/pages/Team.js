@@ -4,68 +4,123 @@ import { Link } from 'react-router-dom';
 const Team = () => {
   const leadershipTeam = [
     {
-      name: 'Sarah Johnson',
+      name: 'Angad Thapa',
       role: 'Club President',
-      major: 'Computer Science, Senior',
-      bio: 'Passionate about ethical hacking and network security. Sarah leads our strategic initiatives and industry partnerships.',
-      image: 'https://picsum.photos/seed/member1/300/300.jpg',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Passionate about ethical hacking and network security. Angad leads our strategic initiatives and industry partnerships.',
+      image: '/placeholder.jpg',
       social: ['LinkedIn', 'GitHub']
     },
     {
-      name: 'Michael Chen',
+      name: 'Sakar Ghimire',
       role: 'Vice President',
-      major: 'Information Technology, Junior',
-      bio: 'Specializes in cybersecurity policy and compliance. Michael oversees our awareness campaigns and training programs.',
-      image: 'https://picsum.photos/seed/member2/300/300.jpg',
+      major: 'Computer Science, 3rd Semester',
+      bio: 'Specializes in cybersecurity policy and compliance. Sakar oversees our awareness campaigns and training programs.',
+      image: '/placeholder.jpg',
       social: ['LinkedIn', 'Twitter']
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Technical Lead',
-      major: 'Cybersecurity, Senior',
-      bio: 'Expert in penetration testing and security audits. Emily leads our technical workshops and CTF competitions.',
-      image: 'https://picsum.photos/seed/member3/300/300.jpg',
+      name: 'Bipesh Koirala',
+      role: 'Technical Lead (Networking)',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Expert in networking and system administration. Bipesh leads our technical workshops.',
+      image: '/placeholder.jpg',
+      social: ['LinkedIn', 'GitHub']
+    },
+        {
+      name: 'Swayam Lama',
+      role: 'Technical Lead (Cybersecurity)',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Expert in cybersecurity and ethical hacking. Swayam leads our CTF competitions and security challenges.',
+      image: '/placeholder1.png',
       social: ['LinkedIn', 'GitHub']
     },
     {
-      name: 'David Kim',
+      name: 'Roshni Shah',
       role: 'Events Coordinator',
-      major: 'Business Administration, Junior',
-      bio: 'Manages event planning and logistics. David ensures our workshops and competitions run smoothly.',
-      image: 'https://picsum.photos/seed/member4/300/300.jpg',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Manages event planning and logistics. Roshni ensures our workshops and competitions run smoothly.',
+      image: '/placeholder.jpg',
       social: ['LinkedIn', 'Instagram']
-    }
+    },
+    {
+      name: 'Sandesh Rijal',
+      role: 'Secretary',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Manages event reports and documentation. Sandesh ensures all our activities are properly recorded and documented.',
+      image: '/placeholder.jpg',
+      social: ['LinkedIn', 'Instagram']
+    },
+    {
+      name: 'Aayush Poudel',
+      role: 'Treasurer',
+      major: 'Computer Science, 5th Semester',
+      bio: 'Manages the club\'s finances and budget allocation.',
+      image: '/placeholder.jpg',
+      social: ['LinkedIn', 'Instagram']
+    },
+    {
+      name: 'Ramjiwan Mahato',
+      role: 'Graphics Designer',
+      major: 'Computer Science, 3th Semester',
+      bio: 'Responsible for designing promotional materials and event graphics.',
+      image: '/placeholder.jpg',
+      social: ['LinkedIn', 'Instagram']
+    },
+
   ];
 
   const facultyAdvisors = [
     {
-      name: 'Dr. Robert Thompson',
+      name: 'Er. Raj Kumar Sapkota',
       role: 'Faculty Advisor',
-      major: 'Professor of Computer Science',
-      bio: 'With over 15 years of experience in cybersecurity research, Dr. Thompson provides academic guidance and industry connections.',
-      image: 'https://picsum.photos/seed/advisor1/300/300.jpg',
+      major: 'HOD of Computer Science',
+      bio: 'With over 10 years of experience in computer science education, Er. Raj Kumar Sapkota provides academic guidance and industry connections.',
+      image: '/placeholder.jpg',
       social: ['LinkedIn', 'ResearchGate']
     },
     {
-      name: 'Prof. Lisa Anderson',
-      role: 'Co-Advisor',
-      major: 'Assistant Professor of IT',
-      bio: 'Specializes in digital forensics and cyber law. Prof. Anderson helps organize legal and ethical workshops.',
-      image: 'https://picsum.photos/seed/advisor2/300/300.jpg',
+      name: 'Prof. Anuj Khanal',
+      role: 'Faculty Advisor',
+      major: 'Professor of IT',
+      bio: 'Highly knowledgeable in information technology, Networking and cybersecurity.',
+      image: '/placeholder.jpg',
       social: ['LinkedIn', 'Twitter']
     }
   ];
 
-  const coreMembers = [
-    { name: 'Alex Turner', role: 'Security Analyst', major: 'Sophomore, CS', image: 'https://picsum.photos/seed/core1/200/200.jpg' },
-    { name: 'Jessica Liu', role: 'Workshop Instructor', major: 'Junior, IT', image: 'https://picsum.photos/seed/core2/200/200.jpg' },
-    { name: 'Ryan Martinez', role: 'CTF Team Lead', major: 'Senior, Cybersecurity', image: 'https://picsum.photos/seed/core3/200/200.jpg' },
-    { name: 'Sophie Wang', role: 'Social Media Manager', major: 'Sophomore, Marketing', image: 'https://picsum.photos/seed/core4/200/200.jpg' },
-    { name: 'James Wilson', role: 'Lab Assistant', major: 'Junior, CS', image: 'https://picsum.photos/seed/core5/200/200.jpg' },
-    { name: 'Maria Garcia', role: 'Content Creator', major: 'Sophomore, Communications', image: 'https://picsum.photos/seed/core6/200/200.jpg' },
-    { name: 'Kevin Park', role: 'Network Security', major: 'Senior, IT', image: 'https://picsum.photos/seed/core7/200/200.jpg' },
-    { name: 'Nina Patel', role: 'Outreach Coordinator', major: 'Junior, Business', image: 'https://picsum.photos/seed/core8/200/200.jpg' }
-  ];
+const coreMembers = [
+  // Secretary
+  { name: 'Sandesh Rijal', role: 'Secretary', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Samridhi RL Kunwar', role: 'Secretary', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Sabina BK', role: 'Secretary', major: '1st Semester, CS', image: '/placeholder.jpg' },
+
+  // Coordinator
+  { name: 'Roshni Shah', role: 'Coordinator', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Jenish Shrestha', role: 'Coordinator', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Onish Rana Magar', role: 'Coordinator', major: '5th Semester, CS', image: '/placeholder.jpg' },
+
+  // Treasurer
+  { name: 'Aayush Poudel', role: 'Treasurer', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Kalyan Tiwari', role: 'Treasurer', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Sumitra Adhikari', role: 'Treasurer', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Aayush Gurung', role: 'Treasurer', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+
+  // Graphics
+  { name: 'Ramjiwan Mahato', role: 'Graphics', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Samikshya Devkota', role: 'Graphics', major: '5thSemester, CS', image: '/placeholder.jpg' },
+  { name: 'Pragati Karki', role: 'Graphics', major: '1st Semester, CS', image: '/placeholder.jpg' },
+
+  // Media
+  { name: 'Sadiksha Timsina', role: 'Media', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Biswodip Sedhai', role: 'Media', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Soniya Khatri', role: 'Media', major: '1st Semester, CS', image: '/placeholder.jpg' },
+
+  // Program Host
+  { name: 'Samir Chapagain', role: 'Program Host', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Sampada Rijal', role: 'Program Host', major: '5th Semester, CS', image: '/placeholder.jpg' },
+  { name: 'Swostika Ghimire', role: 'Program Host', major: '3rd Semester, CS', image: '/placeholder.jpg' },
+];
 
   return (
     <>

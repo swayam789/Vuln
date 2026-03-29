@@ -135,6 +135,7 @@ const User = () => {
             <div className="welcome-section">
               <h1>Welcome back, {user?.username}!</h1>
               <p>Your cybersecurity journey continues</p>
+              <p>Easy test : E0BHEJ9apUTbs05dM2JtNaziNV0=</p>
             </div>
             <div className="user-profile">
               <div className="profile-avatar">

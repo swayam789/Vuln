@@ -41,30 +41,29 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '150+', label: 'Active Members' },
-    { number: '25+', label: 'Events Conducted' },
-    { number: '1000+', label: 'Students Reached' },
+    { number: '40+', label: 'Active Members' },
+    { number: '100+', label: 'Students Reached' },
     { number: '10+', label: 'Industry Partners' }
   ];
 
   const events = [
     {
-      date: { day: '15', month: 'APR' },
-      title: 'Cybersecurity Workshop',
+      date: { day: '3', month: 'APR' },
+      title: 'Webpage Vulnerability Study',
       description: 'Learn about the latest security threats and prevention techniques.',
-      time: '2:00 PM - 4:00 PM'
+      time: ' - '
     },
     {
-      date: { day: '22', month: 'APR' },
-      title: 'CTF Competition',
-      description: 'Test your skills in our monthly Capture The Flag competition.',
-      time: '10:00 AM - 6:00 PM'
+      date: { day: '5', month: 'APR' },
+      title: 'Phishing analysis session',
+      description: 'Learn how to identify and prevent phishing attacks.',
+      time: ' - '
     },
     {
-      date: { day: '05', month: 'MAY' },
-      title: 'Guest Lecture: Industry Expert',
-      description: 'Special session with a cybersecurity professional from a leading tech company.',
-      time: '3:00 PM - 5:00 PM'
+      date: { day: '5', month: 'MAY' },
+      title: 'Intercollege Ideathon',
+      description: 'Ideathon session to brainstorm ideas for cybersecurity solutions.',
+      time: ' - '
     }
   ];
 
@@ -123,7 +122,7 @@ const Home = () => {
           <div className="events-grid">
             {events.map((event, index) => (
               <div key={index} className="event-card">
-                <div className="event-date">
+                <div className="event-date1">
                   <span className="day">{event.date.day}</span>
                   <span className="month">{event.date.month}</span>
                 </div>

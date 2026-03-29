@@ -8,7 +8,7 @@ const Admin = () => {
   const [stats, setStats] = useState({ totalUsers: 0, normalUsers: 0, adminUsers: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-
+  const flag = "CCSA_FLAG{AdminAccessGranted}";
   useEffect(() => {
     checkAuth();
     loadUserData();
@@ -31,7 +31,7 @@ const Admin = () => {
 
     try {
       // Load users
-      const usersResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/users`, {
+      const usersResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/users/all`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -117,6 +117,8 @@ const Admin = () => {
         <div className="dashboard-header">
           <div className="container">
             <h1>Admin Dashboard</h1>
+                        <h3>Congrats Mate!</h3>
+            <p>Flag: {flag}</p>
             <p>Manage CCSA club members and activities</p>
           </div>
         </div>

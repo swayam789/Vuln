@@ -1,1 +1,334 @@
-hey
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — VULN</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00ff41;
+      --dim: #2a6b2a;
+      --bg: #030a03;
+      --card: #000;
+      --border: #0a3a0a;
+      --red: #ff003c;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      color: var(--green);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* CRT scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.09) 2px,
+        rgba(0,0,0,0.09) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Matrix rain canvas */
+    #matrix {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.18;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .skull {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 12px var(--green));
+    }
+
+    .title {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 6px;
+      color: var(--green);
+      text-shadow: 0 0 16px var(--green);
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--dim);
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px;
+      box-shadow: 0 0 40px rgba(0,255,65,0.06), inset 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--dim);
+      margin-bottom: 8px;
+    }
+
+    .field input {
+      width: 100%;
+      background: #020702;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 12px 14px;
+      color: var(--green);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      caret-color: var(--green);
+    }
+
+    .field input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 12px rgba(0,255,65,0.15);
+    }
+
+    .field input::placeholder { color: #1a4a1a; }
+
+    .btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-family: inherit;
+      font-size: 13px;
+      letter-spacing: 4px;
+      padding: 13px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.2s, box-shadow 0.2s;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background: rgba(0,255,65,0.08);
+      box-shadow: 0 0 20px rgba(0,255,65,0.2);
+    }
+
+    .btn:active { transform: scale(0.99); }
+
+    .error {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--red);
+      text-align: center;
+      letter-spacing: 2px;
+      min-height: 18px;
+      text-shadow: 0 0 8px var(--red);
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 10px;
+      color: #0f2a0f;
+      letter-spacing: 2px;
+    }
+
+    /* Blink cursor */
+    .blink {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Fun overlay */
+    #Fun {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9998;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #Fun.show { display: flex; }
+
+    #Fun h1 {
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: var(--green);
+      text-shadow: 0 0 20px var(--green);
+      margin-bottom: 8px;
+    }
+
+    #Fun p {
+      font-size: 13px;
+      color: var(--dim);
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+
+    #Fun img {
+      width: 100%;
+      max-width: 480px;
+      border: 2px solid var(--green);
+      border-radius: 4px;
+      box-shadow: 0 0 40px rgba(0,255,65,0.3);
+    }
+
+    #Fun .flag {
+      margin-top: 24px;
+      font-size: 18px;
+      color: var(--green);
+      letter-spacing: 3px;
+      text-shadow: 0 0 12px var(--green);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 3px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="wrap">
+  <div class="skull">☠</div>
+  <div class="title">VULN ADMIN</div>
+  <div class="subtitle">RESTRICTED ACCESS // AUTHORIZED PERSONNEL ONLY</div>
+
+  <div class="card">
+    <div class="field">
+      <label>USERNAME</label>
+      <input type="text" id="username" placeholder="enter username" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label>PASSWORD</label>
+      <input type="password" id="password" placeholder="••••••••" autocomplete="off" />
+    </div>
+    <button class="btn" onclick="doLogin()">
+      AUTHENTICATE <span class="blink">█</span>
+    </button>
+    <div class="error" id="err"></div>
+  </div>
+
+  <div class="footer">
+    VULN-CORE v1.0 // SESSION MONITORED // UNAUTHORIZED ACCESS IS A CRIME
+  </div>
+</div>
+
+<div id="Fun">
+  <h1>Congrats 🎉</h1>
+  <p>Fun</p>
+  <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Fun" />
+  <div class="flag">https://www.youtube.com/watch?v=dQw4w9WgXcQ</div>
+</div>
+
+<script>
+  // =============================================
+  // NOTE TO SELF: change these before going live
+  // admin_user = "administrator"
+  // admin_pass = "s3cr3t_p4ssw0rd_123"
+  // =============================================
+
+  function doLogin() {
+    var user = document.getElementById('username').value;
+    var pass = document.getElementById('password').value;
+    var err  = document.getElementById('err');
+
+    if (!user || !pass) {
+      err.textContent = '⚠ ALL FIELDS REQUIRED';
+      return;
+    }
+
+    if (user === 'administrator' && pass === 's3cr3t_p4ssw0rd_123') {
+      document.getElementById('Fun').classList.add('show');
+    } else {
+      err.textContent = '✖ ACCESS DENIED — INVALID CREDENTIALS';
+      shake();
+    }
+  }
+
+  // Allow Enter key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  function shake() {
+    var card = document.querySelector('.card');
+    card.style.animation = 'none';
+    card.style.transform = 'translateX(8px)';
+    setTimeout(function() { card.style.transform = 'translateX(-8px)'; }, 80);
+    setTimeout(function() { card.style.transform = 'translateX(6px)'; }, 160);
+    setTimeout(function() { card.style.transform = 'translateX(-6px)'; }, 240);
+    setTimeout(function() { card.style.transform = 'translateX(0)'; }, 320);
+  }
+
+  // Matrix rain
+  (function() {
+    var canvas = document.getElementById('matrix');
+    var ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var cols = Math.floor(canvas.width / 16);
+    var drops = Array(cols).fill(1);
+    var chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF';
+
+    function draw() {
+      ctx.fillStyle = 'rgba(3,10,3,0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = '14px monospace';
+      drops.forEach(function(y, i) {
+        var char = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(char, i * 16, y * 16);
+        if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      });
+    }
+
+    setInterval(draw, 50);
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  })();
+</script>
+</body>
+</html>
