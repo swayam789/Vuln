@@ -31,7 +31,7 @@ const Admin = () => {
 
     try {
       // Load users
-      const usersResponse = await fetch('http://localhost:5000/api/users', {
+      const usersResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/users`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
